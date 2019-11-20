@@ -3,6 +3,8 @@ package com.amitkma.functionalkotlin
 val double: (Int) -> Int = { a -> 2 * a }
 val repeat: (String) -> String = { a -> a.plus(a) }
 
+val concat: (String) -> (String) -> String = { a -> { b -> a.plus(b) } }
+
 fun main() {
 
     // Test basic combinators
@@ -12,8 +14,10 @@ fun main() {
     println(mock(repeat)("FunctionalKotlin"))
 
     // Test boolean combinators
-    println(lTrue("tweet")("chirp")==="tweet")
-    println(lTrue("tweet"))
-    println(lFalse("tweet")("chirp")==="chirp")
-    println(lFalse("chirp"))
+    println(lTrue("tweet")("chirp") === "tweet")
+    println(lFalse("tweet")("chirp") === "chirp")
+
+    // Test flip function
+    println(flip(lTrue)("tweet")("chirp") === "chirp")
+    println(flip(lFalse)("tweet")("chirp") === "tweet")
 }
