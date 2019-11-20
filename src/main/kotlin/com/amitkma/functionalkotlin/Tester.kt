@@ -1,10 +1,19 @@
 package com.amitkma.functionalkotlin
 
-val double: (Int) -> Int = { a -> 2*a }
-val repeat: (String) -> String = { a -> a.plus(a)}
+val double: (Int) -> Int = { a -> 2 * a }
+val repeat: (String) -> String = { a -> a.plus(a) }
 
 fun main() {
-    println(mock(id)("3"))
-    println(mock(double)(2))
-    println(mock(repeat)("amit"))
+
+    // Test basic combinators
+    println(id("Identity Function"))
+    println(mock(id)("Identity of Identity Function"))
+    println(mock(double)(3))
+    println(mock(repeat)("FunctionalKotlin"))
+
+    // Test boolean combinators
+    println(lTrue("tweet")("chirp")==="tweet")
+    println(lTrue("tweet"))
+    println(lFalse("tweet")("chirp")==="chirp")
+    println(lFalse("chirp"))
 }
