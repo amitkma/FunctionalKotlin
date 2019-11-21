@@ -7,17 +7,17 @@ val concat: (String) -> (String) -> String = { a -> { b -> a.plus(b) } }
 
 fun main() {
 
-    // Test basic combinators
-    println(id("Identity Function"))
-    println(mock(id)("Identity of Identity Function"))
-    println(mock(double)(3))
-    println(mock(repeat)("FunctionalKotlin"))
+    // Test basic combinator's
+    println(id("Identity Function"))                            // Prints -> Identity Function
+    println(mock(id)("Identity of Identity Function"))          // Prints -> Identity of Identity Function
+    println(mock(double)(3))                                    // Prints -> 12
+    println(mock(repeat)("FunctionalKotlin"))                   // Prints -> FunctionalKotlinFunctionalKotlinFunctionalKotlinFunctionalKotlin
 
-    // Test boolean combinators
-    println(lTrue("tweet")("chirp") === "tweet")
-    println(lFalse("tweet")("chirp") === "chirp")
+    // Test boolean combinator's
+    println(lTrue("tweet")("chirp") === "tweet")                // Prints -> true
+    println(lFalse("tweet")("chirp") === "chirp")               // Prints -> true
 
     // Test flip function
-    println(flip(lTrue)("tweet")("chirp") === "chirp")
-    println(flip(lFalse)("tweet")("chirp") === "tweet")
+    println(flip(lTrue)("tweet")("chirp") === "chirp")          // Prints -> true
+    println(flip(lFalse)("tweet")("chirp") === "tweet")         // Prints -> true
 }
